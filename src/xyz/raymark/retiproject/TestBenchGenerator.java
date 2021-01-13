@@ -7,7 +7,6 @@ import java.util.NoSuchElementException;
 
 public class TestBenchGenerator {
 
-    static File out = new File("testbench.vhd");
 
     public static void main(String[] args) throws Exception{
         int width = Integer.parseInt(args[0]);
@@ -101,7 +100,7 @@ public class TestBenchGenerator {
             output.append(line);
         }
         isr.close();
-        File f = new File(System.getProperty("user.home") + "/TestBench.vhdl");
+        File f = new File(System.getProperty("user.home") + "/TestBench.vhd");
         BufferedWriter bw = new BufferedWriter(new FileWriter(f));
         bw.write(output.toString());
         bw.close();
