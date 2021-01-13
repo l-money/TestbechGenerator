@@ -28,11 +28,11 @@ public class TestBenchGenerator {
 
     public static List<Integer> equalizeImage(List<Integer> image) {
         List<Integer> eqImage = new ArrayList<>();
-        Integer max = image
+        int max = image
                 .stream()
                 .mapToInt(v -> v)
                 .max().orElseThrow(NoSuchElementException::new);
-        Integer min = image
+        int min = image
                 .stream()
                 .mapToInt(v -> v)
                 .min().orElseThrow(NoSuchElementException::new);
