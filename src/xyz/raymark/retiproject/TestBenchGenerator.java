@@ -59,7 +59,7 @@ public class TestBenchGenerator {
     public static String generateAssertion(List<Integer> eqImage){
         int addr = eqImage.size()+2;
         StringBuilder out = new StringBuilder();
-        for(int n : eqImage){
+        for(int ignored : eqImage){
             out.append("report \"").append(addr).append(") \" & integer'image(to_integer(unsigned(RAM(").append(addr).append("))));\n");
             addr++;
         }
@@ -79,19 +79,19 @@ public class TestBenchGenerator {
         String line;
         while ((line = isr.readLine()) != null) {
             System.out.println(line);
-            output.append(line + "\n");
+            output.append(line).append("\n");
         }
         isr.close();
-        output.append(ram + "\n");
+        output.append(ram).append("\n");
         is = TestBenchGenerator.class.getClassLoader().getResourceAsStream("body.vhdl");
         assert is != null;
         isr = new BufferedReader(new InputStreamReader(is));
         while ((line = isr.readLine()) != null) {
             System.out.println(line);
-            output.append(line + "\n");
+            output.append(line).append("\n");
         }
         isr.close();
-        output.append(assertions + "\n");
+        output.append(assertions).append("\n");
         is = TestBenchGenerator.class.getClassLoader().getResourceAsStream("end.vhdl");
         assert is != null;
         isr = new BufferedReader(new InputStreamReader(is));
